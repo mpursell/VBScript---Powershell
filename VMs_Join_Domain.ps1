@@ -5,8 +5,8 @@
 
 
 #set domain creds
-$credUser = "sa_pursellm@pemsdublin.com"
-$credPassword = "Password09"
+$credUser = "<username>"
+$credPassword = "<password>"
 
 
 #wmic command to join domain
@@ -16,7 +16,7 @@ $domainJoin = "wmic.exe computersystem where Name=""%COMPUTERNAME%"" call joindo
 
 #Start the VMs
 
-get-content "C:\Users\sa_pursellm\Desktop\vmscripts\VMs.txt"|
+get-content "<path to VMs.txt>"|
 foreach-object{
 	start-vm $_ -Confirm:$false	
 }
@@ -25,11 +25,10 @@ foreach-object{
 Write-Host "Sleeping for 2 minutes while VMs power up..."
 Start-Sleep -s 180
 
-get-content "C:\Users\sa_pursellm\Desktop\vmscripts\VMs.txt"|
+get-content "<path to VMs.txt>"|
 foreach-object{
 	
-	#Add-Computer -ComputerName $_ -LocalCredential $_\Administrator -DomainName pemsdublin.com -Credential PEMSDUBLIN.com\mpursell -Restart
-	Invoke-VMScript -VM $_ -ScriptType bat -ScriptText $domainJoin -GuestUser $_\administrator -GuestPassword LOC321XP
+	Invoke-VMScript -VM $_ -ScriptType bat -ScriptText $domainJoin -GuestUser $_\<local admin account> -GuestPassword <local admin password>
 	Start-Sleep -s 10
 	shutdown-vmguest $_ -Confirm:$false
 }
@@ -37,7 +36,7 @@ foreach-object{
 Write-Host "Sleeping for 2 minutes while VMs power down..."
 Start-Sleep -s 180
 
-get-content "C:\Users\sa_pursellm\Desktop\vmscripts\VMs.txt"|
+get-content "<path to VMs.txt>"|
 foreach-object{
 	start-vm $_ -Confirm:$false
 }
