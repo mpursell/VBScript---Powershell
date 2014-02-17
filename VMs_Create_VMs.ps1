@@ -1,3 +1,6 @@
+#Creates VMs from a CSV file.  Requires PowerCLI
+#Mike Pursell 2013
+
 $vmlist = Import-CSV <path to csv>
 
   foreach ($item in $vmlist) {
