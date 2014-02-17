@@ -10,7 +10,7 @@ $credPassword = "<password>"
 
 
 #wmic command to join domain
-$domainJoin = "wmic.exe computersystem where Name=""%COMPUTERNAME%"" call joindomainorworkgroup AccountOU=""Virtual Wks`;OU=All Computers`;OU=Capita`;DC=PEMSDUBLIN`;DC=com"" FJoinOptions=1 Name=""pemsdublin.com"" Password=""$credPassword"" Username = ""$credUser"""
+$domainJoin = "wmic.exe computersystem where Name=""%COMPUTERNAME%"" call joindomainorworkgroup AccountOU=""Virtual Wks`;OU=<OU>`;OU=<OU2>`;DC=<dom1>`;DC=<dom2>"" FJoinOptions=1 Name=""<FQDN>"" Password=""$credPassword"" Username = ""$credUser"""
 
 
 
