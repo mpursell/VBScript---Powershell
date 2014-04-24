@@ -1,4 +1,4 @@
-VBScript---Powersell
+VBScript---Powershell
 ====================
 
 Useful VBScript and Powershell / PowerCli Scripts
