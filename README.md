@@ -1,4 +1,1 @@
-VBScript---Powershell
-====================
-
-Useful VBScript and Powershell / PowerCli Scripts
+Useful VBScripts
